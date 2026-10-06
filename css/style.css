@@ -1,0 +1,198 @@
+/* REQUIEM — Assignment 3. Loaded AFTER Bootstrap so it can override it. */
+
+:root {
+  --bg-base: #0b0a10;
+  --bg-surface: #191825;
+  --border: rgba(139, 92, 246, 0.25);
+  --violet: #8b5cf6;
+  --violet-light: #c4b5fd;
+  --violet-dark: #6d28d9;
+  --text-muted: #cbd5e1;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-muted);
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden; /* safety: no horizontal scroll */
+}
+
+h1, h2, h3, h4, h5, .navbar-brand {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* anchors must not hide under the fixed navbar */
+section[id] { scroll-margin-top: 4.5rem; }
+
+.text-purple-light { color: var(--violet-light) !important; }
+.section-pad { padding: 4rem 0; }
+.section-title { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 0.5rem; }
+
+.grad-text {
+  background: linear-gradient(135deg, #e9d5ff, #a855f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Navbar ---------- */
+.rq-nav {
+  background: rgba(11, 10, 16, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.rq-nav .nav-link { color: var(--text-muted); font-weight: 500; }
+.rq-nav .nav-link:hover { color: var(--violet-light); }
+
+/* ---------- Buttons ---------- */
+.btn-nx {
+  background: linear-gradient(180deg, var(--violet), var(--violet-dark));
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-weight: 600;
+}
+.btn-nx:hover { color: #fff; filter: brightness(1.15); }
+.btn-outline-nx { border: 1px solid var(--violet); color: var(--violet-light); }
+.btn-outline-nx:hover { background: var(--violet); color: #fff; }
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 7rem 0 4rem;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.15), transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(109, 40, 217, 0.12), transparent 50%),
+    var(--bg-base);
+}
+.hero h1 { font-size: clamp(2.4rem, 8vw, 4.6rem); line-height: 1.05; }
+.badge-live {
+  background: rgba(139, 92, 246, 0.15);
+  color: var(--violet-light);
+  border: 1px solid var(--border);
+}
+
+/* ---------- Cards / glass ---------- */
+.glass, .card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.stat-num {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(1.6rem, 3.6vw, 3rem);
+  white-space: nowrap;
+  font-weight: 700;
+  color: var(--violet-light);
+}
+.card p { color: var(--text-muted); }
+
+.zone-art {
+  height: 130px;
+  display: grid;
+  place-items: center;
+  font-size: 3rem;
+  color: #fff;
+  border-radius: 7px 7px 0 0;
+}
+.art-standard { background: linear-gradient(135deg, #1e1b4b, #3730a3); }
+.art-comfort  { background: linear-gradient(135deg, #1e1b4b, #581c87); }
+.art-vip      { background: linear-gradient(135deg, #3b0764, #7c3aed); }
+.art-boot     { background: linear-gradient(135deg, #1e1b4b, #4c1d95); }
+
+.spec-list { list-style: none; padding: 0; margin: 0; }
+.spec-list li { display: flex; gap: 0.6rem; padding: 0.45rem 0; border-bottom: 1px dashed rgba(255,255,255,0.08); }
+.spec-list i { color: var(--violet-light); }
+
+/* ---------- Club visual ---------- */
+.club-art {
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+  font-size: 4rem;
+  color: var(--violet-light);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: linear-gradient(135deg, #181628, #342854);
+}
+
+/* ---------- Carousel ---------- */
+.carousel-inner { border-radius: 6px; }
+/* Bootstrap dark theme makes arrows/dots dark: force them light */
+.carousel-control-prev-icon, .carousel-control-next-icon { filter: none; }
+.carousel-indicators [data-bs-target] { background-color: #fff; }
+.slide {
+  min-height: 260px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 2rem 3.5rem;
+}
+.slide i { font-size: 3rem; color: var(--violet-light); }
+.slide p { color: #e2e8f0; margin-bottom: 0; }
+.s1 { background: linear-gradient(135deg, #181628, #2a2444); }
+.s2 { background: linear-gradient(135deg, #16152b, #242247); }
+.s3 { background: linear-gradient(135deg, #1c1830, #342854); }
+
+/* ---------- Footer ---------- */
+.rq-footer { border-top: 1px solid var(--border); background: #08070d; padding: 2rem 0; }
+.rq-footer p { margin-bottom: 0; }
+.rq-footer a { color: var(--text-muted); text-decoration: none; }
+.rq-footer a:hover { color: var(--violet-light); }
+
+/* =====================================================================
+   TASK 1 — "Why Choose REQUIEM" section, written by hand.
+   MOBILE-FIRST: base styles are for a phone (375px).
+   Media queries use only min-width and ADD changes for wider screens.
+   No Bootstrap classes, no fixed widths, no absolute positioning.
+   ===================================================================== */
+
+/* BASE (phone): 1 item per row, centered text, small heading, tight spacing */
+.why {
+  padding: 3rem 1rem;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.why-wrap { max-width: 69.375rem; margin-inline: auto; }
+.why-title { font-size: 1.6rem; text-align: center; margin: 0 0 0.5rem; }
+.why-lead { text-align: center; margin: 0 0 1.5rem; }
+
+.why-list {
+  display: grid;
+  grid-template-columns: 1fr;          /* 1 per row */
+  gap: 1rem;
+}
+.why-item {
+  text-align: center;
+  padding: 1.25rem;
+  background: var(--bg-base);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.why-icon { display: block; font-size: 2rem; color: var(--violet-light); margin-bottom: 0.5rem; }
+.why-name { font-size: 1.25rem; margin: 0 0 0.35rem; }
+.why-text { margin: 0; font-size: 0.95rem; }
+
+/* BREAKPOINT 1 — tablet (768px): 2 per row + bigger heading and spacing */
+@media (min-width: 768px) {
+  .why { padding: 4.5rem 2rem; }
+  .why-title { font-size: 2.2rem; }
+  .why-lead { margin-bottom: 2.5rem; }
+  .why-list {
+    grid-template-columns: repeat(2, 1fr);   /* 2 per row */
+    gap: 1.5rem;
+  }
+  .why-item { padding: 1.75rem; }
+}
+
+/* BREAKPOINT 2 — laptop (1024px): 4 per row + alignment changes:
+   heading and items become left-aligned */
+@media (min-width: 1024px) {
+  .why-title, .why-lead { text-align: left; }
+  .why-title { font-size: 2.6rem; }
+  .why-list { grid-template-columns: repeat(4, 1fr); }  /* 4 per row */
+  .why-item { text-align: left; }
+}
