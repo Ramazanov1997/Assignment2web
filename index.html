@@ -1,247 +1,31 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <!-- Viewport meta: without it media queries and the grid do not work on phones -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>REQUIEM — Esports Center</title>
-
-  <!-- 1. Bootstrap 5.3 CSS (CDN) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
-  <!-- 2. Own CSS goes AFTER Bootstrap, so it can override it -->
-  <link href="css/style.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assignment 2 - Advanced CSS</title>
+<link rel="stylesheet" href="shared/base.css">
+<link rel="stylesheet" href="index.css">
 </head>
 <body>
+  <main class="container">
+    <h1>Assignment 2 - Advanced CSS (Flexbox &amp; Grid)</h1>
+    <p class="intro">Here are my 3 tasks. No Bootstrap, no JavaScript, no media queries - only Flexbox and CSS Grid.</p>
 
-<!-- ================= NAVBAR (Bootstrap, Task 2) ================= -->
-<header>
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top rq-nav">
-    <div class="container">
-      <a class="navbar-brand fs-3" href="#top"><span class="grad-text">REQUIEM</span></a>
-      <!-- Burger button: visible below lg, toggles #mainNav -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
-              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="#zones">Zones</a></li>
-          <li class="nav-item"><a class="nav-link" href="#club">Club</a></li>
-          <li class="nav-item"><a class="nav-link" href="#atmosphere">Atmosphere</a></li>
-          <li class="nav-item"><a class="nav-link" href="#why">Advantages</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          <!-- Shown only on desktop (hidden below lg) -->
-          <li class="nav-item d-none d-lg-block ms-lg-3"><a class="btn btn-nx btn-sm" href="#contact">Book Station</a></li>
-        </ul>
-      </div>
+    <div class="task-list">
+      <a class="task-card" href="task1/index.html">
+        <h2>Task 1</h2>
+        <p>Geometric composition made with CSS Grid.</p>
+      </a>
+      <a class="task-card" href="task2/index.html">
+        <h2>Task 2</h2>
+        <p>Component library made with Flexbox (navbar, cards, pagination, comment, pricing).</p>
+      </a>
+      <a class="task-card" href="task3/grid.html">
+        <h2>Task 3</h2>
+        <p>Same HTML, three different layouts (grid, list, magazine) using Grid + Flexbox.</p>
+      </a>
     </div>
-  </nav>
-</header>
-
-<main id="top">
-
-  <!-- ================= HERO (Bootstrap, Task 2) ================= -->
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="container">
-      <div class="row align-items-center g-4">
-        <!-- Text column: first in HTML, so it is first on a phone -->
-        <div class="col-12 col-md-7">
-          <span class="badge badge-live rounded-pill px-3 py-2 mb-3"><i class="bi bi-lightning-charge-fill me-1"></i> 24/7 Gaming Arena</span>
-          <h1 id="hero-title">Welcome to<br><span class="grad-text">REQUIEM</span></h1>
-          <p class="lead mt-3">360Hz displays, RTX 4090 builds and tournament-grade atmosphere. Play like a pro at any hour.</p>
-          <div class="d-flex flex-column flex-sm-row gap-3 mt-4">
-            <a href="#contact" class="btn btn-nx btn-lg px-4">Book Station</a>
-            <a href="#zones" class="btn btn-outline-nx btn-lg px-4">Explore Zones</a>
-          </div>
-        </div>
-        <!-- Info panel: hidden on phones (d-none), shown from md (d-md-block) -->
-        <div class="col-md-5 d-none d-md-block">
-          <aside class="glass p-4" aria-label="Live club status">
-            <h2 class="h5 mb-3"><i class="bi bi-broadcast me-2 text-purple-light"></i>Live status</h2>
-            <ul class="spec-list">
-              <li><i class="bi bi-pc-display"></i> 86 of 120 PCs free</li>
-              <li><i class="bi bi-people-fill"></i> 2 Boot Camp rooms open</li>
-              <li><i class="bi bi-clock"></i> Open 24/7</li>
-            </ul>
-          </aside>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= STATS (Bootstrap) ================= -->
-  <section class="section-pad pt-4" aria-label="Club statistics">
-    <div class="container">
-      <!-- 2 per row on phone, 4 per row from md -->
-      <div class="row g-3 text-center">
-        <div class="col-6 col-md-3"><div class="glass p-3 h-100"><div class="stat-num">120+</div><div>High-End PCs</div></div></div>
-        <div class="col-6 col-md-3"><div class="glass p-3 h-100"><div class="stat-num">5</div><div>VIP Boot Camps</div></div></div>
-        <div class="col-6 col-md-3"><div class="glass p-3 h-100"><div class="stat-num">360 Hz</div><div>Displays</div></div></div>
-        <div class="col-6 col-md-3"><div class="glass p-3 h-100"><div class="stat-num">10 Gbps</div><div>Fiber LAN</div></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= ZONES: CARDS (Bootstrap, Task 2) ================= -->
-  <section id="zones" class="section-pad pt-0" aria-labelledby="zones-title">
-    <div class="container">
-      <h2 id="zones-title" class="section-title">Gaming Zones</h2>
-      <p class="mb-4">Select the perfect space for your playstyle and budget.</p>
-      <!-- Cards: 1 per row (phone), 2 (tablet), 4 (laptop) -->
-      <div class="row g-4">
-        <div class="col-12 col-md-6 col-lg-3">
-          <article class="card h-100">
-            <div class="zone-art art-standard"><i class="bi bi-pc-display"></i></div>
-            <div class="card-body">
-              <h3 class="h5">Standard</h3>
-              <p class="small">RTX 4070, 240 Hz — ideal for daily competitive matchmaking.</p>
-            </div>
-          </article>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <article class="card h-100">
-            <div class="zone-art art-comfort"><i class="bi bi-controller"></i></div>
-            <div class="card-body">
-              <h3 class="h5">Comfort</h3>
-              <p class="small">Extra desk space, fast IPS panels and ergonomic seating.</p>
-            </div>
-          </article>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <article class="card h-100">
-            <div class="zone-art art-vip"><i class="bi bi-gem"></i></div>
-            <div class="card-body">
-              <h3 class="h5">VIP Lounge</h3>
-              <p class="small">RTX 4090, Secretlab chairs and a quiet private atmosphere.</p>
-            </div>
-          </article>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <article class="card h-100">
-            <div class="zone-art art-boot"><i class="bi bi-people-fill"></i></div>
-            <div class="card-body">
-              <h3 class="h5">Boot Camp 5v5</h3>
-              <p class="small">Soundproof team room with a dedicated 10G network.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= CLUB: 2 COLUMNS + order-* (Bootstrap, Task 2) ================= -->
-  <section id="club" class="section-pad pt-0" aria-labelledby="club-title">
-    <div class="container">
-      <div class="row align-items-center g-4 g-lg-5">
-        <!-- Text is first in HTML (important on phone). On lg it moves to the right with order-lg-2 -->
-        <div class="col-12 col-lg-6 order-1 order-lg-2">
-          <h2 id="club-title" class="section-title">Built for competitors</h2>
-          <p>REQUIEM is an esports center for students and competitive players. Every station is tuned for low latency, and every zone is built for long sessions.</p>
-          <p class="mb-0">Choose a seat, bring your team or just come to practice — the club works day and night.</p>
-        </div>
-        <!-- Visual block goes under the text on phone, and to the left on lg -->
-        <div class="col-12 col-lg-6 order-2 order-lg-1">
-          <div class="club-art"><i class="bi bi-controller"></i></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= CAROUSEL (Bootstrap component) ================= -->
-  <section id="atmosphere" class="section-pad pt-0" aria-labelledby="atm-title">
-    <div class="container">
-      <h2 id="atm-title" class="section-title">Club Atmosphere</h2>
-      <p class="mb-4">Premium comfort designed for extended sessions.</p>
-      <div id="atmCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#atmCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#atmCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#atmCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="slide s1"><div><i class="bi bi-lightbulb"></i><h3>Tournament Rigs</h3><p>360Hz displays, rapid-trigger keyboards and low latency.</p></div></div>
-          </div>
-          <div class="carousel-item">
-            <div class="slide s2"><div><i class="bi bi-cup-hot"></i><h3>Lounge &amp; Bar</h3><p>Specialty coffee and hot meals delivered to your station.</p></div></div>
-          </div>
-          <div class="carousel-item">
-            <div class="slide s3"><div><i class="bi bi-trophy"></i><h3>LAN Championships</h3><p>Weekly tournaments with cash prizes and live streams.</p></div></div>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#atmCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#atmCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- =====================================================================
-       TASK 1: ADVANTAGES — made BY HAND, own CSS only.
-       No Bootstrap classes here: only .why-* classes from style.css.
-       ===================================================================== -->
-  <section id="why" class="why" aria-labelledby="why-title">
-    <div class="why-wrap">
-      <h2 id="why-title" class="why-title">Why Choose REQUIEM</h2>
-      <p class="why-lead">Four things our players notice first.</p>
-      <div class="why-list">
-        <article class="why-item">
-          <i class="bi bi-mouse3 why-icon"></i>
-          <h3 class="why-name">Pro Peripherals</h3>
-          <p class="why-text">Logitech G Pro Superlight and Wooting analog keyboards.</p>
-        </article>
-        <article class="why-item">
-          <i class="bi bi-cup-straw why-icon"></i>
-          <h3 class="why-name">Snack Bar</h3>
-          <p class="why-text">Fast snacks, barista coffee and drinks at your desk.</p>
-        </article>
-        <article class="why-item">
-          <i class="bi bi-trophy why-icon"></i>
-          <h3 class="why-name">Tournaments</h3>
-          <p class="why-text">Weekly verified leagues with cash prizes.</p>
-        </article>
-        <article class="why-item">
-          <i class="bi bi-person-workspace why-icon"></i>
-          <h3 class="why-name">Ergonomics</h3>
-          <p class="why-text">Cold-cure foam chairs for comfort during night passes.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= CONTACT (Bootstrap) ================= -->
-  <section id="contact" class="section-pad" aria-labelledby="contact-title">
-    <div class="container">
-      <div class="glass p-4 p-md-5 text-center">
-        <h2 id="contact-title" class="section-title">Ready to play?</h2>
-        <p class="mb-4">Reserve your station and come in.</p>
-        <!-- Phone only: tap to call. Hidden from md -->
-        <a href="tel:+77000000000" class="btn btn-nx btn-lg d-md-none w-100"><i class="bi bi-telephone-fill me-2"></i>Call the club</a>
-        <!-- Tablet and up: address block -->
-        <p class="d-none d-md-block mb-0"><i class="bi bi-geo-alt-fill me-2 text-purple-light"></i>Astana, Kazakhstan · Open 24/7</p>
-      </div>
-    </div>
-  </section>
-</main>
-
-<!-- ================= FOOTER ================= -->
-<footer class="rq-footer">
-  <div class="container d-md-flex justify-content-between align-items-center text-center text-md-start">
-    <p class="mb-2 mb-md-0">&copy; 2026 REQUIEM. All rights reserved.</p>
-    <div>
-      <a href="#zones" class="me-3">Zones</a>
-      <a href="#atmosphere" class="me-3">Atmosphere</a>
-      <a href="#why">Advantages</a>
-    </div>
-  </div>
-</footer>
-
-<!-- Bootstrap JS bundle: needed for the burger menu and the carousel -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </main>
 </body>
 </html>

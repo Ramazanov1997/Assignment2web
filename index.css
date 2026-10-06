@@ -1,0 +1,32 @@
+.intro {
+  color: var(--light-text);
+  margin-bottom: var(--gap-large);
+}
+
+/* I used flexbox here just to put the 3 task cards in a row
+   and let them wrap to a new line on a small screen */
+.task-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-medium);
+}
+
+.task-card {
+  flex: 1 1 220px; /* grow, shrink, but try to be at least 220px wide */
+  text-decoration: none;
+  color: var(--dark-text);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: var(--gap-medium);
+  background: var(--bg-light);
+}
+.task-card:hover {
+  border-color: var(--main-color);
+}
+.task-card h2 {
+  color: var(--main-color);
+}
+.task-card p {
+  color: var(--light-text);
+  margin-bottom: 0;
+}
